@@ -1,0 +1,37 @@
+{
+  "name": "expressx",
+  "version": "0.0.0",
+  "authors": [
+    "munzir <munzir.suliman@outlook.com>"
+  ],
+  "description": "An app to connect expressx community",
+  "keywords": [
+    "connect"
+  ],
+  "license": "expressx",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.4.0",
+    "angular-bootstrap": "~0.12.0",
+    "angular-resource": "~1.4.0",
+    "angular-ui-router": "~0.2.13",
+    "caman": "~4.1.2",
+    "angulartics": "~0.17.2",
+    "angular-chart.js": "~0.7.0",
+    "ngInfiniteScroll": "~1.2.1",
+    "angular-animate": "~1.4.0",
+    "angular-deckgrid": "~0.5.0",
+    "angular-xeditable": "~0.1.9"
+  },
+  "resolutions": {
+    "angular": "1.4.2"
+  }
+}

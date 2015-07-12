@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-offset-1 col-md-10">
+		<!-- comments -->
+		<div class="row" style="background-color:#fff;padding-top:2%;margin-top:2%;" ng-repeat="i in info.info">
+			<div class="col-md-12">
+				<span class="glyphicon glyphicon-user">
+					<a ng-href="{{i.comment[0].author[0].name}}">
+						{{i.comment[0].author[0].name}}</a>'s comment on <a href="{{i.user[0].name}}/{{i.name}}">{{i.name}}</a>
+				</span>
+			</div>
+			<div class="col-md-12">
+				<h5>{{i.comment[0].content}}</h5>
+			</div>
+			<div class="col-md-12">
+				<p class="text-muted">{{i.comment[0].created | date:'MM/dd/yyyy  HH:mm Z'}}</p>
+			</div>
+			<div class="col-md-12">
+				<hr/>
+			</div>
+		</div> <!-- end comments -->
+	</div>
+</div>

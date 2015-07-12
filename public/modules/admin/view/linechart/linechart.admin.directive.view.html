@@ -1,0 +1,43 @@
+<section>
+	<div class="row">
+		<form name="lineChartForm" class="form-inline">
+			<div class="input-group">
+				<div class="input-group-addon">Results of 28 Days , Starting from </div>
+				<input type="date" name="dateFrom" class="form-control" ng-model="dateFrom" id="dateFrom" required>
+			</div>
+			<div class="input-group">
+				<button class="btn btn-success" ng-disabled="lineChartForm.$invalid" ng-click="getAnalysisButtton()">Apply</button>
+			</div>
+		</form>
+	</div>
+	<div class="row add-space">
+		<div ng-show="pointerInfo" class="row">
+			<div class="col-md-12">
+				<span class="alert alert-success">Results of the date {{pointerInfo.date}}</span>
+				<button class="btn" style="background-color: {{pointerInfo.ProductsColor}};" ng-click="showProducts()">
+					Products <span class="badge">{{pointerInfo.Products.info.length}}</span>
+				</button>
+				<button class="btn" style="background-color: {{pointerInfo.CommentsColor}};" ng-click="showComments()">
+					Comments <span class="badge">{{pointerInfo.Comments.info.length}}</span>
+				</button>
+				<button class="btn" style="background-color: {{pointerInfo.HeartsColor}};" ng-click="showHearts()">
+					Hearts <span class="badge">{{pointerInfo.Hearts.info.length}}</span>
+				</button>
+				<button class="btn" style="background-color: {{pointerInfo.OrdersColor}};" ng-click="showOrders()">
+					Orders <span class="badge">{{pointerInfo.Orders.info.length}}</span>
+				</button>
+				<button class="btn" style="background-color: {{pointerInfo.CartsColor}};" ng-click="showCarts()">
+					Carts <span class="badge">{{pointerInfo.Carts.info.length}}</span>
+				</button>
+				<button class="btn" style="background-color: {{pointerInfo.UsersColor}};" ng-click="showUsers()">
+					Users <span class="badge">{{pointerInfo.Users.info.length}}</span>
+				</button>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<h4>Users Activity</h4>
+			<p class="text-muted">Users Subscribtion ,Products, Carts , Orders, Hearts & Comments</p>
+			<canvas id="line" class="chart chart-line" data="lineData" labels="lineLabels" legend="true" series="lineSeries" click="getPointInfo"></canvas> 
+		</div>
+	</div>
+</section>
