@@ -2,7 +2,7 @@
 
 // intitiate the app and Inject all of the app module dependencies
 //configure the routes
-var expressx = angular.module('expressx', ['xeditable', 'akoenig.deckgrid', 'ngAnimate', 'infinite-scroll', 'adminModule', 'angulartics', 'angulartics.google.analytics', 'ui.bootstrap', 'ui.router','ngResource', 'authModule', 'homeModule', 'userModule' , 'chart.js']);
+var expressx = angular.module('expressx', ['xeditable', 'akoenig.deckgrid', 'ngAnimate', 'infinite-scroll', 'adminModule', 'angulartics', 'angulartics.google.analytics', 'ui.bootstrap', 'ui.router','ngResource', 'authModule', 'homeModule', 'userModule' , 'chart.js', 'productModule']);
 
 //RouteScopes & Routes Configurations 
 expressx.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 'ChartJsProvider', function ($urlRouterProvider, $stateProvider, $locationProvider, ChartJsProvider) {
@@ -58,6 +58,11 @@ expressx.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 'C
 			controller: 'signoutAuthController',
 			cache: true
 		})
+		.state('product',{
+			url: '/product',
+			controller: 'indexProductController',
+			templateUrl: 'public/modules/product/view/index.product.view.html'
+		});
 		$locationProvider.html5Mode(true).hashPrefix('!');
 }])
 .run(['$rootScope', '$location', 'editableOptions', function ($rootScope, $location, editableOptions) {
