@@ -199,3 +199,9 @@ module.exports.removeCategory = function (req, res) {
 		}
 	});
 }
+
+module.exports.uploadProductsFile = function (req, res){
+	console.log(req.body);
+	console.log(req.files);
+	res.status(200).jsonp('Bism Allah, here is the uploaded file');
+}

@@ -8,8 +8,19 @@ angular.module('adminModule').factory('connectAdminFactory', ['$resource', funct
 			"param": "@param",
 			"limit": "@limit",
 			"skip": "@skip"
-		}, 
-		{ 
-		'update': { method:'PUT' }
-	});
+		},
+		{
+			"update": {
+				method:"PUT",
+				withCredentials: true,
+				headers: {'Content-Type': undefined },
+				transformRequest: angular.identity
+			},
+			"save": {
+				method:"POST",
+				withCredentials: true,
+				headers: {'Content-Type': undefined },
+				transformRequest: angular.identity
+			}
+		});
 }]);

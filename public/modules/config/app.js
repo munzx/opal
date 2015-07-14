@@ -2,7 +2,7 @@
 
 // intitiate the app and Inject all of the app module dependencies
 //configure the routes
-var expressx = angular.module('expressx', ['xeditable', 'akoenig.deckgrid', 'ngAnimate', 'infinite-scroll', 'adminModule', 'angulartics', 'angulartics.google.analytics', 'ui.bootstrap', 'ui.router','ngResource', 'authModule', 'homeModule', 'userModule' , 'chart.js', 'productModule']);
+var expressx = angular.module('expressx', ['xeditable', 'akoenig.deckgrid', 'ngAnimate', 'infinite-scroll', 'angulartics', 'angulartics.google.analytics', 'ui.bootstrap', 'ui.router','ngResource', 'authModule', 'adminModule', 'homeModule', 'userModule' , 'chart.js', 'productModule']);
 
 //RouteScopes & Routes Configurations 
 expressx.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 'ChartJsProvider', function ($urlRouterProvider, $stateProvider, $locationProvider, ChartJsProvider) {
@@ -62,6 +62,16 @@ expressx.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', 'C
 			url: '/product',
 			controller: 'indexProductController',
 			templateUrl: 'public/modules/product/view/index.product.view.html'
+		})
+		.state('admin', {
+			url: '/admin',
+			controller: 'indexAdminController',
+			templateUrl: 'public/modules/admin/view/index.admin.view.html'
+		})
+		.state('admin.product', {
+			url: '/product',
+			controller: 'productAdminController',
+			templateUrl: 'public/modules/admin/view/product.admin.view.html'
 		});
 		$locationProvider.html5Mode(true).hashPrefix('!');
 }])

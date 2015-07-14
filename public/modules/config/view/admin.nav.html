@@ -16,6 +16,9 @@
 				<li ui-sref-active="active" ng-show="notLoggedLink">
 					<a ui-sref="about"><b>About</b></a>
 				</li>
+				<li ui-sref-active="active" ng-show="loggedLink">
+					<a ui-sref="admin.product"><b><span class="glyphicon glyphicon-picture"></span> Products</b></a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ui-sref-active="active" ng-show="notLoggedLink">
@@ -29,12 +32,7 @@
 						<span  class="glyphicon glyphicon-cog" style="font-size:20px;"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a ui-sref="profile.setting"><span class="glyphicon glyphicon-user"></span> Account</a></li>
-						<li class="divider"></li>
-						<li><a ui-sref="profile.social"><span class="glyphicon glyphicon-wrench"></span> Manage Admins</a></li>
-						<li class="divider"></li>
-						<li><a ui-sref="profile.userPassword"><span class="glyphicon glyphicon-asterisk"></span> Change Password</a></li>
-						<li class="divider"></li>
+						<!-- <li class="divider"></li> -->
 						<li><a ui-sref="signout"><span class="glyphicon glyphicon-stop"></span> SignOut</a></li>
 					</ul>
 				</li>

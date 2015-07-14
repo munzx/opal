@@ -110,6 +110,7 @@ module.exports = function (app, express) {
 		//admin
 		.get('/admin', isAdmin, admin.index)
 		.get('/admin/first', admin.createFirst)
+		.post('/admin/product/upload', isAdmin, admin.uploadProductsFile)
 		//Users
 		.get('/user', users.index) //get all users
 		.post('/user', isGuest, users.create) //create a new user

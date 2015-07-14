@@ -13,6 +13,7 @@ var logger = require('express-logger'),
 	passport = require('passport'),
 	passportLocal = require('passport-local'),
 	favicon = require('serve-favicon'),
+	multer  = require('multer'),
 	env = process.env.NODE_ENV,
 	envConfig = require('./env/' + process.env.NODE_ENV) || {};
 
@@ -65,6 +66,7 @@ module.exports = function (app, express) {
 	app.use(methodOverride()); //read about this
 	app.use(passport.initialize()); //initialize passport
 	app.use(passport.session()); // persistent login sessions
+	app.use(multer({ dest: './public/uploads/'})); //file upload "multi part"
 
 	//Publically accessable folders
 	app.use('/asset', express.static('./bower_components/'));
