@@ -1,7 +1,14 @@
 <div class="row">
 	<div class="row">
 		<div class="col-md-12">
-			<input type="text" ng-model="searchInk" class="form-control" placeholder="Search ....">
+			<form class="form-inline no-animate">
+				<div class="form-group">
+					<div class="input-group">
+					    <input type="text" ng-model="asyncSelected" placeholder="Search by model..." typeahead="item.mpn for item in getModels($viewValue)" ng-change="test()" typeahead-on-select='onSelect($item, $model, $label)' typeahead-loading="loadingmodels" class="form-control no-animate">
+					</div>
+					 <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+				 </div>
+			</form>
 		</div>
 	</div>
 
@@ -31,6 +38,6 @@
 	</div>
 
 
-<pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="pageChanged()"></pagination>
+<pagination ng-hide="asyncSelected" total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="pageChanged()"></pagination>
 
 </div>

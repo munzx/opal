@@ -289,3 +289,13 @@ module.exports.uploadProductsFile = function (req, res){
 		res.status(404).jsonp('No file has been found');
 	}
 }
+
+module.exports.searchInks = function(req, res){
+	inks.find({mpn: new RegExp(req.params.model, "i")}, {}, function (err, result) {
+		if(err){
+			res.status(500).jsonp({message: err});
+		} else {
+			res.status(200).jsonp(result);
+		}
+	});
+}

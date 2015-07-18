@@ -112,6 +112,7 @@ module.exports = function (app, express) {
 		.get('/admin/first', admin.createFirst)
 		.get('/admin/product/ink/:limit/:skip', admin.getInks) //any user can access this page
 		.post('/admin/product/upload', isAdmin, admin.uploadProductsFile)
+		.get('/admin/product/search/:model', admin.searchInks)
 		//Users
 		.get('/user', users.index) //get all users
 		.post('/user', isGuest, users.create) //create a new user

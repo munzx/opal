@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('productModule').controller('indexProductController', ['$scope', 'connectAdminFactory', function ($scope, connectAdminFactory) {
+angular.module('productModule').controller('indexProductController', ['$scope', 'connectAdminFactory', '$http', 'limitToFilter', function ($scope, connectAdminFactory, $http, limitToFilter) {
 	$scope.getInks = function(pageNo){
 		var skipVal = (pageNo == 0 || pageNo == 1)? 0: 40*(pageNo - 1);
 		connectAdminFactory.get({page: 'product', action: 'ink', limit: 40, skip: skipVal}, function(response){
@@ -41,7 +41,23 @@ angular.module('productModule').controller('indexProductController', ['$scope', 
 
 	$scope.pageChanged = function() {
 		$scope.getInks($scope.bigCurrentPage);
-		console.log('Page changed to: ' + $scope.bigCurrentPage);
 	};
+
+	$scope.getModels = function(val) {
+		return $http.get('/api/v1/admin/product/search/' + val).then(function(response){
+			return limitToFilter(response.data, 15);
+		});
+	};
+
+	$scope.test = function(){
+		if($scope.asyncSelected.length == 0){
+			$scope.getInks(0);
+		}
+	}
+
+	 $scope.onSelect = function ($item, $model, $label) {
+	 	$scope.products = [$item];
+	};
+
 
 }]);
