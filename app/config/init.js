@@ -66,8 +66,11 @@ module.exports = function (app, express) {
 	app.use(methodOverride()); //read about this
 	app.use(passport.initialize()); //initialize passport
 	app.use(passport.session()); // persistent login sessions
-	app.use(multer({ dest: './public/uploads/'})); //file upload "multi part"
-
+	//file upload "multi part"
+	app.use(multer({ 
+		dest: './public/uploads/', 
+		rename: function (fieldname, filename) { return Date.now() + '.' + filename.toLowerCase();} //rename the uploaded file "to original name"
+	}));
 	//Publically accessable folders
 	app.use('/asset', express.static('./bower_components/'));
 	app.use('/public', express.static('./public/'));

@@ -110,6 +110,7 @@ module.exports = function (app, express) {
 		//admin
 		.get('/admin', isAdmin, admin.index)
 		.get('/admin/first', admin.createFirst)
+		.get('/admin/product/ink/:limit/:skip', admin.getInks) //any user can access this page
 		.post('/admin/product/upload', isAdmin, admin.uploadProductsFile)
 		//Users
 		.get('/user', users.index) //get all users
