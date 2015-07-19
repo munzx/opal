@@ -4,7 +4,7 @@
 			<form class="form-inline no-animate">
 				<div class="form-group">
 					<div class="input-group">
-					    <input type="text" ng-model="asyncSelected" placeholder="Search by model..." typeahead="item.mpn for item in getModels($viewValue)" ng-change="test()" typeahead-on-select='onSelect($item, $model, $label)' typeahead-loading="loadingmodels" class="form-control no-animate">
+					    <input type="text" ng-model="asyncSelected" placeholder="Search by model..." typeahead="item.desc for item in getModels($viewValue)" ng-change="test()" typeahead-on-select='onSelect($item, $model, $label)' typeahead-loading="loadingmodels" class="form-control no-animate">
 					</div>
 					 <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 				 </div>
@@ -19,18 +19,12 @@
 					<tr>
 						<th>Brand</th>
 						<th>Model</th>
-						<th>Description</th>
-						<th>Condition</th>
-						<th>Quantity</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="no-animate" ng-repeat="product in products | filter:searchInk">
 						<td>{{product.oem}}</td>
-						<td>{{product.mpn}}</td>
 						<td>{{product.desc}}</td>
-						<td>{{product.condition}}</td>
-						<td>{{product.quantity}}</td>
 					</tr>
 				</tbody>
 			</table>

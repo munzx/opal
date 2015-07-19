@@ -291,7 +291,7 @@ module.exports.uploadProductsFile = function (req, res){
 }
 
 module.exports.searchInks = function(req, res){
-	inks.find({mpn: new RegExp(req.params.model, "i")}, {}, function (err, result) {
+	inks.find({desc: new RegExp(req.params.model, "i")}, {}, function (err, result) {
 		if(err){
 			res.status(500).jsonp({message: err});
 		} else {
